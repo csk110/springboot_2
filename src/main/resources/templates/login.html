@@ -1,0 +1,65 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>登录</title>
+    <meta charset="utf-8">
+    <link rel='stylesheet' th:href='@{/webjars/bootstrap/3.3.1/css/bootstrap.css}'>
+    <style type="text/css">
+        .input-group{
+            margin:10px 0px;
+        }
+        h3{
+            padding:5px;
+            border-bottom:1px solid #ddd;
+        }
+        li{
+            list-style-type:square;
+            margin:10px 0;
+        }
+        em{
+            color:#c7254e;
+            font-style: inherit;
+            background-color: #f9f2f4;
+        }
+    </style>
+</head>
+<body>
+<div class="row" style="margin:120px;">
+    <div class="col-md-6" style="border-right:1px solid #ddd;">
+        <div class="well col-md-10">
+            <h3>用户登录</h3>
+            <form method="post" action="${pageContext.request.contextPath}/user?method=login">
+                <div class="input-group input-group-md">
+                <span class="input-group-addon">
+                    <i class="glyphicon glyphicon-user" aria-hidden="true"></i>
+                </span>
+                    <input type="text" name="uName" class="form-control" placeholder="用户名" aria-describedby="sizing-addon1">
+                </div>
+                <div class="input-group input-group-md">
+                <span class="input-group-addon" id="sizing-addon1">
+                    <i class="glyphicon glyphicon-lock"></i>
+                </span>
+                    <input type="password" name="uPwd" class="form-control" placeholder="密码" aria-describedby="sizing-addon1">
+                </div>
+                <div class="well well-sm" style="text-align:center;">
+                    <input type="radio" name="user_role" value="1"> 玩家
+                    <input type="radio" name="user_role" value="2"> 管理员
+                </div>
+                <a href="<%=request.getContextPath() %>/view/zc.jsp">没有账号？去注册[[${hi}]]</a>
+                <button type="submit" class="btn btn-success btn-block">登录</button>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <h3>欢迎使用游戏管理系统</h3>
+        <ul>
+            <li>玩家使用
+                <em>玩家名称</em>登录，初始密码为
+                <em>123</em>，登录后请及时修改密码</li>
+            <li>管理员请使用
+                <em>管理员名称</em>登录，初始密码为
+                <em>admin</em>，登录后请及时修改密码</li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
